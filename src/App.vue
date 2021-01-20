@@ -19,7 +19,7 @@
     <button @click="summit" class="summit">Summit</button>
   </div>
   <img v-if="img_data !== ''" :src="img_data" />
-  <div v-if="err !== ''">
+  <div v-if="err !== ''" class="error">
     {{ err }}
   </div>
   <div class="footer">
@@ -121,5 +121,9 @@ button {
 button.summit {
   color: whitesmoke;
   background: darkslateblue;
+}
+
+.error {
+  color: red
 }
 </style>
