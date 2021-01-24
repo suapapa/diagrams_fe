@@ -13,11 +13,6 @@
   <div v-if="err !== ''" class="error">
     {{ err }}
   </div>
-  <div class="footer">
-    Copyright © 2020-Present mingrammer for
-    <a href="https://diagrams.mingrammer.com/">Diagrams</a> and Homin Lee for
-    Diagrams Sandbox
-  </div>
 </template>
 
 <script>
