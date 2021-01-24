@@ -1,13 +1,6 @@
 <template>
   <h1>Diagrams Sandbox</h1>
   <img alt="Diagrams logo" src="../assets/diagrams.png" />
-  <div class="reference">
-    <ul>
-      <li>
-        <a href="https://diagrams.mingrammer.com/">Official Diagrams site</a>
-      </li>
-    </ul>
-  </div>
   <PrismEditor
     class="my-editor"
     v-model="code"
@@ -23,7 +16,7 @@
     {{ err }}
   </div>
   <div class="footer">
-    Copyright © 2020-Present mingrammer for Diagrams and Homin Lee for Diagrams
+    Copyright © 2020-Present mingrammer for <a href="https://diagrams.mingrammer.com/">Diagrams</a> and Homin Lee for Diagrams
     Sandbox
   </div>
 </template>
@@ -41,7 +34,6 @@ import "prismjs/themes/prism-tomorrow.css"; // import syntax highlighting styles
 import axios from 'axios'
 
 export default {
-  name: "App",
   components: { PrismEditor },
   data: () => ({
     code: `from diagrams import Diagram
@@ -70,14 +62,14 @@ with Diagram("Web Service", show=False):
     },
     summit() {
       // TODO: fix to actual address
-      axios.post('http://localhost:8888/diagram', this.code)
+      axios.post('http://172.30.5.213:8888/diagram', this.code)
       .then(res => {
         console.log(res);
         this.err = res.data.err;
         if (res.data.img !== "") {
-          console.log("here i come")
           this.img_data = "data:image/png;base64,"+res.data.img
         } else {
+          // error msg may be displayed
           this.img_data = ""
         }
       })
@@ -114,8 +106,8 @@ button {
   border-radius: 4px;
   color: #000;
   background: darkgray;
-  margin: 5px;
-  padding: 5px;
+  margin: 10px;
+  padding: 10px;
   font-size: 14px;
 }
 
