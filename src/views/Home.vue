@@ -16,8 +16,9 @@
     {{ err }}
   </div>
   <div class="footer">
-    Copyright © 2020-Present mingrammer for <a href="https://diagrams.mingrammer.com/">Diagrams</a> and Homin Lee for Diagrams
-    Sandbox
+    Copyright © 2020-Present mingrammer for
+    <a href="https://diagrams.mingrammer.com/">Diagrams</a> and Homin Lee for
+    Diagrams Sandbox
   </div>
 </template>
 
@@ -31,7 +32,7 @@ import { highlight, languages } from "prismjs/components/prism-core";
 import "prismjs/components/prism-python";
 import "prismjs/themes/prism-tomorrow.css"; // import syntax highlighting styles
 
-import axios from 'axios'
+import axios from "axios";
 
 export default {
   components: { PrismEditor },
@@ -51,7 +52,7 @@ from diagrams.aws.network import ELB
 with Diagram("Web Service", show=False):
     ELB("lb") >> EC2("web") >> RDS("userdb")`,
     img_data: "",
-    err: ""
+    err: "",
   }),
   methods: {
     highlighter(code) {
@@ -62,20 +63,21 @@ with Diagram("Web Service", show=False):
     },
     summit() {
       // TODO: fix to actual address
-      axios.post('http://172.30.5.213:8888/diagram', this.code)
-      .then(res => {
-        console.log(res);
-        this.err = res.data.err;
-        if (res.data.img !== "") {
-          this.img_data = "data:image/png;base64,"+res.data.img
-        } else {
-          // error msg may be displayed
-          this.img_data = ""
-        }
-      })
-      .catch(error => {
-        console.log(error)
-      })
+      axios
+        .post("http://127.0.0.1:8888/diagram", this.code)
+        .then((res) => {
+          console.log(res);
+          this.err = res.data.err;
+          if (res.data.img !== "") {
+            this.img_data = "data:image/png;base64," + res.data.img;
+          } else {
+            // error msg may be displayed
+            this.img_data = "";
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
 };
@@ -117,6 +119,6 @@ button.summit {
 }
 
 .error {
-  color: red
+  color: red;
 }
 </style>
