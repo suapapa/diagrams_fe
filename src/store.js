@@ -4,16 +4,23 @@ const store = {
     debug: true,
 
     state: reactive({
-        diagram: '',
         searchPattern: '',
+        code: '',
+        exampleCode: `from diagrams import Diagram
+from diagrams.aws.compute import EC2
+from diagrams.aws.database import RDS
+from diagrams.aws.network import ELB
+
+with Diagram("Web Service", show=False):
+    ELB("lb") >> EC2("web") >> RDS("userdb")`
     }),
 
-    setDiagram(newValue) {
+    setCode(newValue) {
         if (this.debug) {
             console.log('setMessageAction triggered with', newValue)
         }
 
-        this.state.diagram = newValue
+        this.state.code = newValue
     },
 
     setSearchPattern(newValue) {

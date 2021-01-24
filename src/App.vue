@@ -1,10 +1,12 @@
 <template>
+  <h1>Diagrams Sandbox</h1>
+  <img alt="Diagrams logo" src="./assets/diagrams.png" />
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/nodes">Nodes</router-link> |
     <router-link to="/about">About</router-link>
   </div>
-  <router-view/>
+  <router-view />
 </template>
 
 <style>

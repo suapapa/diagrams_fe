@@ -16,8 +16,8 @@ import store from "../store.js";
 export default {
   data: () => ({
     fuse: null,
-    storedState: store.state,
     filtered_nodes: null,
+    storedState: store.state,
   }),
   mounted() {
     fetch("http://127.0.0.1:8888/nodes")

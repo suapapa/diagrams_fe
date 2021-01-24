@@ -1,6 +1,4 @@
 <template>
-  <h1>Diagrams Sandbox</h1>
-  <img alt="Diagrams logo" src="../assets/diagrams.png" />
   <PrismEditor
     class="my-editor"
     v-model="code"
@@ -33,45 +31,51 @@ import "prismjs/components/prism-python";
 import "prismjs/themes/prism-tomorrow.css"; // import syntax highlighting styles
 
 import axios from "axios";
+import store from "../store.js";
 
 export default {
   components: { PrismEditor },
   data: () => ({
-    code: `from diagrams import Diagram
-from diagrams.aws.compute import EC2
-from diagrams.aws.database import RDS
-from diagrams.aws.network import ELB
-
-with Diagram("Web Service", show=False):
-    ELB("lb") >> EC2("web") >> RDS("userdb")`,
-    default_code: `from diagrams import Diagram
-from diagrams.aws.compute import EC2
-from diagrams.aws.database import RDS
-from diagrams.aws.network import ELB
-
-with Diagram("Web Service", show=False):
-    ELB("lb") >> EC2("web") >> RDS("userdb")`,
+    code: "",
+    defaultCode: "",
     img_data: "",
     err: "",
+    storedState: store.state,
   }),
+  mounted() {
+    console.log("home mounted");
+    this.defaultCode = this.storedState.exampleCode;
+    if (this.storedState.code === "") {
+      console.log("loading example code...");
+      this.code = this.defaultCode;
+      store.setCode(this.code);
+    } else {
+      this.code = this.storedState.code;
+    }
+    this.getDiagram(this.code);
+  },
   methods: {
     highlighter(code) {
       return highlight(code, languages.py); // languages.<insert language> to return html with markup
     },
     reset() {
-      this.code = this.default_code;
+      this.code = this.defaultCode;
     },
     summit() {
+      store.setCode(this.code);
+      this.getDiagram(this.code);
+    },
+    getDiagram(code) {
       // TODO: fix to actual address
       axios
-        .post("http://127.0.0.1:8888/diagram", this.code)
+        .post("http://127.0.0.1:8888/diagram", code)
         .then((res) => {
           console.log(res);
           this.err = res.data.err;
           if (res.data.img !== "") {
             this.img_data = "data:image/png;base64," + res.data.img;
           } else {
-            // error msg may be displayed
+            // TODO: error msg may be displayed
             this.img_data = "";
           }
         })
