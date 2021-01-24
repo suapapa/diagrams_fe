@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "fuse.js": "^6.4.6",
     "prismjs": "^1.23.0",
     "vue": "^3.0.0",
     "vue-prism-editor": "^2.0.0-alpha.2",
