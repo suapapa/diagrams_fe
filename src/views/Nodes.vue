@@ -1,11 +1,10 @@
 <template>
   <input type="text" placeholder="fuzzy search pattern" @keyup="onKeyUp" />
-  <div v-if="filtered_nodes !== null">
-    <ul id="array-rendering">
-      <li v-for="item in filtered_nodes" :key="item.refIndex">
-        from {{ item.item.module }} import {{ item.item.node }}
-      </li>
-    </ul>
+  <div class="nodes" v-if="filtered_nodes !== null">
+    <div v-for="item in filtered_nodes" :key="item.refIndex">
+      from <b>{{ item.item.module }}</b> import <b>{{ item.item.node }}</b>
+      <button @click="onCopy(item.item.module, item.item.node)">COPY</button>
+    </div>
   </div>
 </template>
 
@@ -20,7 +19,7 @@ export default {
     storedState: store.state,
   }),
   mounted() {
-    fetch("/nodes")
+    fetch("http://127.0.0.1:8888/nodes")
       .then((res) => res.json())
       .then((data) => {
         console.log("loading nodes...");
@@ -31,6 +30,10 @@ export default {
   methods: {
     onKeyUp(e) {
       this.fuzzySearch(e.target.value);
+    },
+    onCopy(m, n) {
+      console.log(m, n);
+      navigator.clipboard.writeText("from " + m + " import " + n);
     },
     fuzzySearch(ptn) {
       console.log("fuzzy serch", ptn);
