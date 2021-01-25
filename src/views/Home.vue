@@ -63,7 +63,7 @@ export default {
     getDiagram(code) {
       // TODO: fix to actual address
       axios
-        .post("http://127.0.0.1:8888/diagram", code)
+        .post("/diagram", code)
         .then((res) => {
           console.log(res);
           this.err = res.data.err;

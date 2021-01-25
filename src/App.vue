@@ -2,7 +2,7 @@
   <h1>Diagrams Sandbox</h1>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/nodes">Nodes</router-link> |
+    <router-link to="/node_search">Nodes</router-link> |
     <router-link to="/about">About</router-link>
   </div>
   <router-view />
