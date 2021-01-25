@@ -6,13 +6,14 @@ const store = {
     state: reactive({
         searchPattern: '',
         code: '',
-        exampleCode: `from diagrams import Diagram
-from diagrams.aws.compute import EC2
-from diagrams.aws.database import RDS
-from diagrams.aws.network import ELB
+        exampleCode: `from diagrams import Diagram, Cluster
+from diagrams.programming.framework import Vue
+from diagrams.programming.language import Python, Go
 
-with Diagram("Web Service", show=False):
-    ELB("lb") >> EC2("web") >> RDS("userdb")`
+with Diagram("Diagrams Sandbox", show=False):
+  with Cluster("sandbox"):
+    diagrams = Python("diagrams")
+  Vue("frontend") >> Go("backend") >> diagrams`
     }),
 
     setCode(newValue) {
