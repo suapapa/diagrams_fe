@@ -1,11 +1,18 @@
 <template>
   <input type="text" placeholder="fuzzy search pattern" @keyup="onKeyUp" />
   <div v-if="filtered_nodes !== null">
+    <!--
     <ul id="array-rendering">
       <li v-for="item in filtered_nodes" :key="item.refIndex">
         from {{ item.item.module }} import {{ item.item.node }}
       </li>
     </ul>
+    -->
+
+    <div contenteditable="true" v-for="item in filtered_nodes" :key="item.refIndex">
+        from {{ item.item.module }} import {{ item.item.node }}
+        <button @click="onCopy(item.item.module, item.item.node)">COPY</button>
+    </div>
   </div>
 </template>
 
@@ -31,6 +38,10 @@ export default {
   methods: {
     onKeyUp(e) {
       this.fuzzySearch(e.target.value);
+    },
+    onCopy(m, n) {
+      console.log(m, n)
+      Clipboard.writeText(m + "."+ n)
     },
     fuzzySearch(ptn) {
       console.log("fuzzy serch", ptn);
