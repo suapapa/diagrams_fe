@@ -10,6 +10,7 @@
     <p>
       This Appication consits of thee part which is written in different
       programming languages.
+      <img src="../assets/diagrams-sandbox.png" />
       <ul>
         <li> Frontend written in Vue (Javasciprt) provides web frontend.</li>
         <li> Backend written in Go provides api server.</li>
