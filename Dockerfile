@@ -1,21 +1,22 @@
 FROM node:lts-alpine as builder
 
+ARG URL_PREFIX
+ENV URL_PREFIX=${URL_PREFIX}
+
 WORKDIR /app
-# ENV PATH="${PATH}:/app/node_modules/.bin"
 COPY package.json ./
 RUN npm install
+
 COPY . ./
+RUN sed "s/==URL_PREFIX==/${URL_PREFIX}/" /app/dsb.conf > app.conf
 RUN npm run build
 
 # ---
 
 FROM nginx:stable-alpine
-COPY --from=builder /app/dist /usr/share/nginx/html/diagrams-sb
-# COPY --from=builder /app/default.conf /etc/nginx/conf.d/default.conf
-# COPY --from=builder /app/nginx_local.conf /etc/nginx/conf.d
-
-ENV URL_PREFIX=/diagrams-sb
-ENV FOLDER=/diagrams-sb
+COPY --from=builder /app/dist /usr/share/nginx/html/dist
+RUN rm /etc/nginx/conf.d/default.conf
+COPY --from=builder /app/app.conf /etc/nginx/conf.d/app.conf
 
 EXPOSE 80
 
