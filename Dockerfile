@@ -10,12 +10,12 @@ RUN npm run build
 # ---
 
 FROM nginx:stable-alpine
-COPY --from=builder /app/dist /usr/share/nginx/html
-COPY --from=builder /app/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /app/dist /usr/share/nginx/html/diagrams-sb
+# COPY --from=builder /app/default.conf /etc/nginx/conf.d/default.conf
 # COPY --from=builder /app/nginx_local.conf /etc/nginx/conf.d
 
-ENV URL_PREFIX=/dgsb-fe
-ENV FOLDER=/dist
+ENV URL_PREFIX=/diagrams-sb
+ENV FOLDER=/diagrams-sb
 
 EXPOSE 80
 

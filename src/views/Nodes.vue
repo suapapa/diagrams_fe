@@ -19,7 +19,7 @@ export default {
     storedState: store.state,
   }),
   mounted() {
-    fetch("http://127.0.0.1:8888/nodes")
+    fetch("https://homin.dev/diagrams-srv/nodes")
       .then((res) => res.json())
       .then((data) => {
         console.log("loading nodes...");

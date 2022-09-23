@@ -14,7 +14,7 @@
       <ul>
         <li> Frontend written in Vue (Javasciprt) provides web frontend.</li>
         <li> Backend written in Go provides api server.</li>
-        <li> Diagrams witten in Python (by mingrammer)</li>
+        <li> Diagrams witten in Python (by MinJae Kwon)</li>
       </ul>
     Because of Diagrams script actually a Python script. This app use
     gVisor, an application kernel for containers

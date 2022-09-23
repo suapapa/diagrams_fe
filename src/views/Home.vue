@@ -13,6 +13,9 @@
   <div v-if="err !== ''" class="error">
     {{ err }}
   </div>
+  <div v-if="msg !== ''" class="error">
+    {{ msg }}
+  </div>
 </template>
 
 <script>
@@ -35,6 +38,7 @@ export default {
     defaultCode: "",
     img_data: "",
     err: "",
+    msg: "",
     storedState: store.state,
   }),
   mounted() {
@@ -63,15 +67,18 @@ export default {
     getDiagram(code) {
       // TODO: fix to actual address
       axios
-        .post("http://127.0.0.1:8888/diagram", code)
+        .post("https://homin.dev/diagrams-srv/diagram", code)
         .then((res) => {
           console.log(res);
           this.err = res.data.err;
+          this.msg = res.data.msg;
           if (res.data.img !== "") {
             this.img_data = "data:image/png;base64," + res.data.img;
           } else {
             // TODO: error msg may be displayed
             this.img_data = "";
+            this.err = res.err
+            this.msg = res.msg
           }
         })
         .catch((error) => {

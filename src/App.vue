@@ -7,9 +7,9 @@
   </div>
   <router-view />
   <div class="footer">
-    Copyright © 2020-Present mingrammer for
+    Copyright © 2020-Present MinJae Kwon for
     <a href="https://diagrams.mingrammer.com/">Diagrams</a> and Homin Lee for
-    Diagrams Sandbox
+    Diagrams Sandbox (this web app)
   </div>
 </template>
 
