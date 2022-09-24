@@ -12,7 +12,7 @@ from diagrams.programming.language import Python, Go
 
 # Diagrams Sandbox: DO NOT DELETE THIS LINE #
 
-with Diagram("Diagrams Sandbox", show=False):
+with Diagram("Diagrams Sandbox", show=False, graph_attr={"pad": "0.2"}):
   with Cluster("sandbox"):
     diagrams = Python("diagrams")
   Vue("frontend") >> Go("backend") >> diagrams`

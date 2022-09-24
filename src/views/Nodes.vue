@@ -2,7 +2,7 @@
   <div class="">
   <input type="text" placeholder="fuzzy search pattern" @keyup="onKeyUp" />
   </div>
-  <div class="nodes w-50 pa4 center debug" v-if="filtered_nodes !== null">
+  <div class="nodes w-50 pa4 center" v-if="filtered_nodes !== null">
     <div class="tl" v-for="item in filtered_nodes" :key="item.refIndex">
       <button class="r" @click="onCopy(item.item.module, item.item.node)">COPY</button>
       from <b>{{ item.item.module }}</b> import <b>{{ item.item.node }}</b>
