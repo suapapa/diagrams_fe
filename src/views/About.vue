@@ -10,11 +10,13 @@
     <p>
       This Appication consits of thee part which is written in different
       programming languages.
-      <img src="../assets/diagrams-sandbox.png" />
+      <!-- <img src="../assets/diagrams-sandbox.png" /> -->
+      <img src="https://homin.dev/asset/blog/img/dsb.png" />
       <ul>
-        <li> Frontend written in Vue (Javasciprt) provides web frontend.</li>
-        <li> Backend written in Go provides api server.</li>
-        <li> Diagrams witten in Python (by MinJae Kwon)</li>
+        <li> Frontend written in Vue.</li>
+        <li> Backend written in Go to provides api server.</li>
+        <li> Proxy written in Go to use Diagrams with stdin and stdout.</li>
+        <li> Diagrams (main engine) witten in Python (by MinJae Kwon).</li>
       </ul>
     Because of Diagrams script actually a Python script. This app use
     gVisor, an application kernel for containers
