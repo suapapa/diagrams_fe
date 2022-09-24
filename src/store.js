@@ -10,6 +10,8 @@ const store = {
 from diagrams.programming.framework import Vue
 from diagrams.programming.language import Python, Go
 
+# Diagrams Sandbox: DO NOT DELETE THIS LINE #
+
 with Diagram("Diagrams Sandbox", show=False):
   with Cluster("sandbox"):
     diagrams = Python("diagrams")
