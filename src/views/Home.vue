@@ -67,7 +67,7 @@ export default {
     getDiagram(code) {
       // TODO: fix to actual address
       axios
-        .post("https://homin.dev/diagrams-srv/diagram", code)
+        .post("http://localhost:8081/diagram", code)
         .then((res) => {
           console.log(res);
           this.err = res.data.err;
