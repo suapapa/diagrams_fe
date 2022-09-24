@@ -19,7 +19,7 @@ export default {
     storedState: store.state,
   }),
   mounted() {
-    fetch("http://localhost:8081/dsb/nodes")
+    fetch("https://homin.dev/dsb-api/nodes")
       .then((res) => res.json())
       .then((data) => {
         console.log("loading nodes...");
