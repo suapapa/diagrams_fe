@@ -19,7 +19,7 @@ export default {
     storedState: store.state,
   }),
   mounted() {
-    fetch("http://localhost:8081/nodes")
+    fetch("http://localhost:8081/dsb/nodes")
       .then((res) => res.json())
       .then((data) => {
         console.log("loading nodes...");
