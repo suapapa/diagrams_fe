@@ -1,20 +1,27 @@
 <template>
+  <div class="pa4">
   <PrismEditor
     class="my-editor"
     v-model="code"
     :highlight="highlighter"
     line-numbers
   ></PrismEditor>
+  </div>
   <div>
     <button @click="reset">Reset to default template</button>
     <button @click="summit" class="summit">Summit</button>
   </div>
-  <img v-if="img_data !== ''" :src="img_data" />
-  <div v-if="err !== ''" class="error">
-    {{ err }}
-  </div>
-  <div v-if="msg !== ''" class="error">
-    {{ msg }}
+  <img v-if=" img_data !== '' " :src="img_data" />
+  <div v-if=" err !== '' " class="error">
+    <h2>!! ERROR !!</h2>
+    <div v-if="msg !== ''" class="error">
+      <h3>
+        {{ msg }}
+      </h3>
+    </div>
+    <pre>
+      {{ err }}
+    </pre>
   </div>
 </template>
 
@@ -70,15 +77,15 @@ export default {
         .post("https://homin.dev/dsb-api/diagram", code)
         .then((res) => {
           console.log(res);
-          this.err = res.data.err;
-          this.msg = res.data.msg;
-          if (res.data.img !== "") {
+          // this.err = res.data.err;
+          // this.msg = res.data.msg;
+          if (res.data.img !== undefined && res.data.img !== "") {
             this.img_data = "data:image/png;base64," + res.data.img;
           } else {
             // TODO: error msg may be displayed
-            this.img_data = "";
-            this.err = res.err
-            this.msg = res.msg
+            // this.img_data = "";
+            this.err = res.data.err
+            this.msg = res.data.msg
           }
         })
         .catch((error) => {
@@ -115,7 +122,7 @@ button {
   color: #000;
   background: darkgray;
   margin: 10px;
-  padding: 10px;
+  padding: 8px;
   font-size: 14px;
 }
 
