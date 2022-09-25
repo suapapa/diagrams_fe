@@ -9,7 +9,7 @@
 
       <!-- <img src="../assets/diagrams-sandbox.png" /> -->
       <img src="../assets/dsb.png" />
-    <div class="w-50 tl center">
+    <div class="w-80 tl center">
       <p class="f4">
         This Appication is consits of four part which is written in different
         programming languages.
@@ -32,7 +32,11 @@
       </div>
       </div>
 
-      <p class="f3 tc pa5">
+      <p class="f4">
+      Check out <a href="https://homin.dev/blog/post/20220925_diagrams_sandbox_on_web">my blog post about this app</a> (KOR)
+      </p>
+
+      <p class="f2 tc pt4">
       - Have fun! And, <a href="https://homin.dev/ingress/support">Support</a> this site if you enjoyed -
       </p>
       
