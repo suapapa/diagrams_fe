@@ -6,9 +6,10 @@
     <router-link to="/about">About</router-link>
   </div>
   <router-view />
-  <div class="footer">
+  <div class="footer pt4 pb2">
     Copyright © 2020-Present MinJae Kwon for
-    <a href="https://diagrams.mingrammer.com/">Diagrams</a> and Homin Lee for
+    <a href="https://diagrams.mingrammer.com/">Diagrams</a> and 
+    <a href="https://homin.dev">Homin Lee</a> for
     Diagrams Sandbox (this web app)
   </div>
 </template>

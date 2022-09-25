@@ -16,7 +16,7 @@
       </p>
       <div class="center f5">
       <div class="tl center pl3">
-        <p> - Frontend written in Vue.</p>
+        <p> - Frontend written in Vue3.</p>
         <p> - Backend written in Go to provides api server.</p>
         <p> - Proxy written in Go to use Diagrams with stdin and stdout.</p>
         <p> - Diagrams (main engine) witten in Python (by MinJae Kwon).</p>
@@ -26,6 +26,16 @@
       <p class="f4">
       It also provide fuzzy search page of Nodes in Diagrams.
       </p>
+      <div class="center f5">
+      <div class="tl center pl3">
+        <p> - Provide by <a href="https://fusejs.io">Fuse.js</a></p>
+      </div>
+      </div>
+
+      <p class="f3 tc pa5">
+      - Have fun! And, <a href="https://homin.dev/ingress/support">Support</a> this site if you enjoyed -
+      </p>
+      
     </div>
   </div>
 </template>
