@@ -81,11 +81,12 @@ export default {
           // this.msg = res.data.msg;
           if (res.data.img !== undefined && res.data.img !== "") {
             this.img_data = "data:image/png;base64," + res.data.img;
+            this.err = "";
+            this.msg = "";
           } else {
-            // TODO: error msg may be displayed
-            // this.img_data = "";
-            this.err = res.data.err
-            this.msg = res.data.msg
+            this.img_data = "";
+            this.err = res.data.err;
+            this.msg = res.data.msg;
           }
         })
         .catch((error) => {
