@@ -71,16 +71,11 @@ export default {
       store.setCode(this.code);
       this.getDiagram(this.code);
     },
-    hashCode(str) {
-      return str.split('').reduce((s, c) => Math.imul(31, s) + c.charCodeAt(0) | 0, 0) 
-    },
     getDiagram(code) {
       let hash_val = this.hashCode(code);
-      // TODO: fix to actual address
       axios
         .post("https://homin.dev/dsb-api/diagram", {
           code: code,
-          hash: hash_val
         })
         // .post("https://homin.dev/dsb-api/diagram", code)
         .then((res) => {
