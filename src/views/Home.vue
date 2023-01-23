@@ -74,10 +74,11 @@ export default {
     getDiagram(code) {
       // TODO: fix to actual address
       axios
-        .post("https://homin.dev/diagrams-srv/diagram", {
+        .post("https://homin.dev/dsb-api/diagram", {
           code: code,
           checksum: this.hash(code)
         })
+        // .post("https://homin.dev/dsb-api/diagram", code)
         .then((res) => {
           console.log(res);
           this.err = res.data.err;
