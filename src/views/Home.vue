@@ -72,7 +72,6 @@ export default {
       this.getDiagram(this.code);
     },
     getDiagram(code) {
-      let hash_val = this.hashCode(code);
       axios
         .post("https://homin.dev/dsb-api/diagram", {
           code: code,
